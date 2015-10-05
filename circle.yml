@@ -4,5 +4,4 @@ machine:
       2.2.0
 test:
   pre:
-    - rubocop
-
+    - bundle exec rubocop

@@ -1,7 +1,8 @@
-# Dependency Inspector
+# Dependency Inspector [![Circle CI](https://circleci.com/gh/travelist/dependency-inspector.svg?style=shield&circle-token=a5c5179f69fddb1a3eeae0a33aad56de84be3701)](https://circleci.com/gh/travelist/dependency-inspector)
 
 This gem is for analysing dependencies files such as `Gemfile` to detect which libraries are used for the project.
-* Currently only `Gemfile` is supported *
+
+*Currently only `Gemfile` is supported. Others will come to be supported*
 
 ## Installation
 
@@ -35,6 +36,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 Do not forget to execute `rubocop` before pushing the changes.
+
 ```shell
 rubocop
 ```
