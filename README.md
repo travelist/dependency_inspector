@@ -1,4 +1,4 @@
-# Dependency Inspector [![Circle CI](https://circleci.com/gh/travelist/dependency-inspector.svg?style=shield&circle-token=a5c5179f69fddb1a3eeae0a33aad56de84be3701)](https://circleci.com/gh/travelist/dependency-inspector)
+# Dependency Inspector [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Circle CI](https://circleci.com/gh/travelist/dependency-inspector.svg?style=shield&circle-token=a5c5179f69fddb1a3eeae0a33aad56de84be3701)](https://circleci.com/gh/travelist/dependency-inspector)
 
 This gem is for analysing dependencies files such as `Gemfile` and list libraries with their information.
 
@@ -73,7 +73,10 @@ end
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release` to create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine
+```
+bundle exec rake install
+```
 
 Do not forget to execute `rubocop` before pushing the changes.
 
@@ -83,21 +86,21 @@ rubocop
 
 ## Contributing
 
-[1] Fork it ( https://github.com/travelist/dependency-inspector/fork )
+1 Fork it ( https://github.com/travelist/dependency-inspector/fork )
 
-[2] Create your feature branch 
+2 Create your feature branch 
 ```shell
 git checkout -b my-new-feature
 ```
 
-[3] Commit your changes 
+3 Commit your changes 
 ```shell
 git commit -am 'Add some feature'
 ```
 
-[4] Push to the branch
+4 Push to the branch
 ```shell
 git push origin my-new-feature
 ```
 
-[5] Create a new Pull Request
+5 Create a new Pull Request
