@@ -1,6 +1,6 @@
 # Dependency Inspector [![Circle CI](https://circleci.com/gh/travelist/dependency-inspector.svg?style=shield&circle-token=a5c5179f69fddb1a3eeae0a33aad56de84be3701)](https://circleci.com/gh/travelist/dependency-inspector)
 
-This gem is for analysing dependencies files such as `Gemfile` to detect which libraries are used for the project.
+This gem is for analysing dependencies files such as `Gemfile` and list libraries with their information.
 
 *Currently only `Gemfile` is supported. Others will come to be supported*
 
@@ -22,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-*NOTE: This is primitive project, so the following usages is not ensured to be consistent for the future versions*
+*NOTE: Since this is primitive project, the following usages is not ensured to be consistent for the future versions*
 
 ```ruby
 # include this gem
@@ -40,8 +40,7 @@ dependency_info = di.resolve
 ```
 
 ```ruby
-# currently this shows latest versoin informatoin.
-# Will support for specific version according to Gemfile
+# currently library version is not supported (always return latest versoin info)
 dependency_info.each do |i|
   p i["name"]              # => "rails"
   p i["downloads"]         # => 54525871
@@ -67,8 +66,8 @@ end
 
 ## TODO
 
-1. Write test code
-2. support for other languages and dependency managers
+* Write test code
+* support for other languages and dependency managers
 
 ## Development
 
@@ -84,8 +83,21 @@ rubocop
 
 ## Contributing
 
-1. Fork it ( https://github.com/travelist/dependency-inspector/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+[1] Fork it ( https://github.com/travelist/dependency-inspector/fork )
+
+[2] Create your feature branch 
+```shell
+git checkout -b my-new-feature
+```
+
+[3] Commit your changes 
+```shell
+git commit -am 'Add some feature'
+```
+
+[4] Push to the branch
+```shell
+git push origin my-new-feature
+```
+
+[5] Create a new Pull Request
