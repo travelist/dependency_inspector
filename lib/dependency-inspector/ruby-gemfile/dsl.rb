@@ -18,16 +18,16 @@ module DependencyInspector
       end
 
       def eval_gemfile(gemfile)
-        txt = File.open(gemfile, 'rb') { |f| f.read }
-        instance_eval(txt,  gemfile.to_s)
+        txt = File.open(gemfile, 'rb', &:read)
+        instance_eval(txt, gemfile.to_s)
       end
 
       def normalize_source(src)
         case src
-          when String
-            src
-          else
-            raise Exception, "unknown source #{src}"
+        when String
+          src
+        else
+          fail Exception, "unknown source #{src}"
         end
       end
 
@@ -51,27 +51,25 @@ module DependencyInspector
         @source = old_source
       end
 
-      def method_missing(name, *args)
+      def method_missing(name, *_args)
         p "currently #{name} is not supported"
       end
 
       def normalize_group_options(opts, groups)
         normalize_hash(opts)
 
-        groups = groups.map {|group| ":#{group}" }.join(', ')
+        groups = groups.map { |group| ":#{group}" }.join(', ')
         validate_keys("group #{groups}", opts, %w(optional))
 
         opts['optional'] ||= false
       end
 
-      def validate_keys(command, opts, valid_keys)
+      def validate_keys(_command, opts, valid_keys)
         invalid_keys = opts.keys - valid_keys
-        if invalid_keys.any?
-          p 'error'
-        end
+        p 'error' if invalid_keys.any?
       end
 
-      def group(*args, &blk)
+      def group(*args, &_blk)
         opts = Hash === args.last ? args.pop.dup : {}
         normalize_group_options(opts, args)
 
@@ -94,12 +92,12 @@ module DependencyInspector
         opts
       end
 
-      def normalize_options(name, version, opts)
+      def normalize_options(name, _version, opts)
         if name.is_a?(Symbol)
-          raise Exception, %{You need to specify gem names as Strings. Use 'gem "#{name}"' instead.}
+          fail Exception, %(You need to specify gem names as Strings. Use 'gem "#{name}"' instead.)
         end
         if name =~ /\s/
-          raise Exception, %{'#{name}' is not a valid gem name because it contains whitespace.}
+          fail Exception, %('#{name}' is not a valid gem name because it contains whitespace.)
         end
 
         normalize_hash(opts)
@@ -125,7 +123,7 @@ module DependencyInspector
         normalize_options(name, version, options)
 
         dep = RubyGemfile::Dependency.new(name, version, options)
-        return if @dependencies.find {|d| d.name == dep.name }
+        return if @dependencies.find { |d| d.name == dep.name }
 
         @dependencies << dep
       end

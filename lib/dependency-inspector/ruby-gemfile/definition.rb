@@ -4,7 +4,8 @@ module DependencyInspector
       attr_reader :dependencies
 
       def initialize(dependencies, sources)
-        @dependencies, @sources = dependencies, sources
+        @dependencies = dependencies
+        @sources = sources
         @remote = false
         @expanded_dependencies = nil
       end

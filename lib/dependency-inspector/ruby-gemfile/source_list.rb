@@ -7,7 +7,7 @@ module DependencyInspector
         @rubygems_sources   = []
       end
 
-      def add_rubygems_sources(options={})
+      def add_rubygems_sources(options = {})
         add_source_to_list RubyGemfile::Source.new(options), @rubygems_sources
       end
 

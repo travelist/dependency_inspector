@@ -4,16 +4,16 @@ module DependencyInspector
       attr_reader :requirements
 
       OPS = {
-        '=': lambda { |v, r| v == r },
-        '!=': lambda { |v, r| v != r },
-        '>': lambda { |v, r| v >  r },
-        '<': lambda { |v, r| v <  r },
-        '>=': lambda { |v, r| v >= r },
-        '<=': lambda { |v, r| v <= r },
-        '~>': lambda { |v, r| v >= r && v.release < r.bump }
+        '=': ->(v, r) { v == r },
+        '!=': ->(v, r) { v != r },
+        '>': ->(v, r) { v > r },
+        '<': ->(v, r) { v < r },
+        '>=': ->(v, r) { v >= r },
+        '<=': ->(v, r) { v <= r },
+        '~>': ->(v, r) { v >= r && v.release < r.bump }
       }
 
-      quoted  = OPS.keys.map { |k| Regexp.quote k }.join '|'
+      quoted = OPS.keys.map { |k| Regexp.quote k }.join '|'
       VERSION_PATTERN = '[0-9]+(?>\.[0-9a-zA-Z]+)*(-[0-9A-Za-z-]+(\.[0-9A-Za-z-]+)*)?'
       PATTERN_RAW = "\\s*(#{quoted})?\\s*(#{VERSION_PATTERN})\\s*"
       PATTERN = /\A#{PATTERN_RAW}\z/
@@ -36,16 +36,16 @@ module DependencyInspector
 
       def self.create(requirements)
         case requirements
-          when RubyGemfile::Requirement then
-            requirements
-          when Array then
-            new requirements
+        when RubyGemfile::Requirement then
+          requirements
+        when Array then
+          new requirements
+        else
+          if input.respond_to? :to_str
+            new [input.to_str]
           else
-            if input.respond_to? :to_str
-              new [input.to_str]
-            else
-              default
-            end
+            default
+          end
         end
       end
 
@@ -55,13 +55,13 @@ module DependencyInspector
 
       def self.parse(obj)
         unless PATTERN =~ obj.to_s
-          raise Exception, "Wrong requirement [#{obj.inspect}]"
+          fail Exception, "Wrong requirement [#{obj.inspect}]"
         end
 
-        if $1 == '>=' && $2 == '0'
+        if Regexp.last_match(1) == '>=' && Regexp.last_match(2) == '0'
           DEFAULT_REQUIREMENT
         else
-          [$1 || '=', $2]
+          [Regexp.last_match(1) || '=', Regexp.last_match(2)]
         end
       end
     end

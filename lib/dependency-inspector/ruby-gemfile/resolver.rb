@@ -15,13 +15,13 @@ module DependencyInspector
         @started_at           = Time.now
       end
 
-      def start(reqs, current_traversal=false)
+      def start(reqs, current_traversal = false)
         activated = {}
         @initial_reqs = reqs.dup unless current_traversal
         resolve(reqs, activated, current_traversal)
       end
 
-      def resolve(reqs, activated, current_traversal)
+      def resolve(reqs, _activated, _current_traversal)
         results = []
         reqs.each do |r|
           result = search(r)
