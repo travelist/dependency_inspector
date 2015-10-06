@@ -41,7 +41,7 @@ Style/Documentation:
     - 'lib/dependency-inspector/ruby-gemfile/requirement.rb'
     - 'lib/dependency-inspector/ruby-gemfile/resolver.rb'
     - 'lib/dependency-inspector/ruby-gemfile/source.rb'
-    - 'lib/dependency-inspector/ruby-gemfile/source_list.rb'
+    - 'lib/dependency-inspector/ruby-gemfile/source-list.rb'
     - 'lib/dependency-inspector/version.rb'
 
 # Offense count: 1
@@ -49,6 +49,7 @@ Style/Documentation:
 Style/FileName:
   Exclude:
     - 'lib/dependency-inspector.rb'
+    - 'lib/dependency-inspector/ruby-gemfile/source-list.rb'
 
 # Offense count: 1
 Style/OpMethod:

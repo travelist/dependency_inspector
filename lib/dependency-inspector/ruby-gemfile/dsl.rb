@@ -52,7 +52,8 @@ module DependencyInspector
       end
 
       def method_missing(name, *_args)
-        p "currently #{name} is not supported"
+        name
+        # p "currently #{name} is not supported"
       end
 
       def normalize_group_options(opts, groups)

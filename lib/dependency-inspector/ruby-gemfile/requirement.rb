@@ -25,8 +25,6 @@ module DependencyInspector
         requirements.compact!
         requirements.uniq!
 
-        p "requirements: #{requirements}"
-
         if requirements.empty?
           @requirements = [DEFAULT_REQUIREMENT]
         else

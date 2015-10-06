@@ -22,7 +22,48 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+*NOTE: This is primitive project, so the following usages is not ensured to be consistent for the future versions*
+
+```ruby
+# include this gem
+require 'dependency-inspector'
+```
+
+```ruby
+gemfile_filepath = "#{Dir.pwd}/Gemfile"
+di = DependencyInspector::RubyGemfile::Dsl.evaluate(gemfile_filepath)
+```
+
+```ruby
+dependency_info = di.resolve
+# this takes time according to the amount of the dependency libraries
+```
+
+```ruby
+# currently this shows latest versoin informatoin.
+# Will support for specific version according to Gemfile
+dependency_info.each do |i|
+  p i["name"]              # => "rails"
+  p i["downloads"]         # => 54525871
+  p i["version"]           # => "4.2.4"
+  p i["version_downloads"] # => 359907
+  p i["platform"]          # => "ruby"
+  p i["authors"]           # => "Dav..."
+  p i["info"]              # => "Ruby"
+  p i["licenses"]          # => ["MIT"]
+  p i["metadata"]          # => {}
+  p i["sha"]               # => "1c33de75..."
+  p i["project_uri"]       # => "https://rubygems.org/gems/rails"
+  p i["gem_uri"]           # => "https://rubygems.org/gems/rails-4.2.4.gem"
+  p i["homepage_uri"]      # => "http://www.rubyonrails.org"
+  p i["wiki_uri"]          # => "http://wiki.rubyonrails.org"
+  p i["documentation_uri"] # => "http://api.rubyonrails.org"
+  p i["mailing_list_uri"]  # => "http://groups.google.com/group/rubyonrails-talk"
+  p i["source_code_uri"]   # => "http://github.com/rails/rails"
+  p i["bug_tracker_uri"]   # => "http://github.com/rails/rails/issues"
+  p i["dependencies"]      # => {"development"=>[], "runtime"=>[{"name"=>"actionmailer", "requirements"=>"= 4.2.4"}
+end
+```
 
 ## TODO
 
