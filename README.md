@@ -1,4 +1,4 @@
-# Dependency Inspector [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Circle CI](https://circleci.com/gh/travelist/dependency-inspector.svg?style=shield&circle-token=a5c5179f69fddb1a3eeae0a33aad56de84be3701)](https://circleci.com/gh/travelist/dependency-inspector)
+# Dependency Inspector [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Circle CI](https://circleci.com/gh/travelist/dependency-inspector.svg?style=shield&circle-token=a5c5179f69fddb1a3eeae0a33aad56de84be3701)](https://circleci.com/gh/travelist/dependency-inspector) [![Gem Version](https://badge.fury.io/rb/dependency_inspector.svg)](https://badge.fury.io/rb/dependency_inspector)
 
 This gem is for analysing dependencies files such as `Gemfile` and list libraries with their information.
 
