@@ -1,17 +1,17 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'dependency-inspector/version'
+require 'dependency_inspector/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'dependency-inspector'
+  spec.name          = 'dependency_inspector'
   spec.version       = DependencyInspector::VERSION
   spec.authors       = ['Komei Shimamura']
   spec.email         = ['komei.t.f@gmail.com']
 
   spec.summary       = 'Inspect dependency files and retrieve the details'
   spec.description   = ''
-  spec.homepage      = 'https://github.com/travelist/dependency-inspector'
+  spec.homepage      = 'https://github.com/travelist/dependency_inspector'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(spec)/}) }

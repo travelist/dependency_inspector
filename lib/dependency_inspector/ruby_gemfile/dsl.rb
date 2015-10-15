@@ -18,8 +18,12 @@ module DependencyInspector
       end
 
       def eval_gemfile(gemfile)
-        txt = File.open(gemfile, 'rb', &:read)
-        instance_eval(txt, gemfile.to_s)
+        if gemfile.is_a?(String)
+          instance_eval(gemfile)
+        else
+          txt = File.open(gemfile, 'rb', &:read)
+          instance_eval(txt, gemfile.to_s)
+        end
       end
 
       def normalize_source(src)
