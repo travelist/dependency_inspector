@@ -33,6 +33,13 @@ require 'dependency-inspector'
 gemfile_filepath = "#{Dir.pwd}/Gemfile"
 di = DependencyInspector::RubyGemfile::Dsl.evaluate(gemfile_filepath)
 ```
+> It can cope with the text as well
+```ruby
+gemfile_txt = <<EOR
+source 'https://rubygems.org'
+gem 'dependency_inspector'
+EOR
+di = DependencyInspector::RubyGemfile::Dsl.evaluate(gemfile_txt)
 
 ```ruby
 dependency_info = di.resolve
