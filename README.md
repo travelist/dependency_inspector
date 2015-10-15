@@ -9,7 +9,7 @@ This gem is for analysing dependencies files such as `Gemfile` and list librarie
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'dependency-inspector'
+gem 'dependency_inspector'
 ```
 
 And then execute:
@@ -18,7 +18,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install dependency-inspector
+    $ gem install dependency_inspector
 
 ## Usage
 
@@ -26,7 +26,7 @@ Or install it yourself as:
 
 ```ruby
 # include this gem
-require 'dependency-inspector'
+require 'dependency_inspector'
 ```
 
 ```ruby
@@ -37,7 +37,7 @@ di = DependencyInspector::RubyGemfile::Dsl.evaluate(gemfile_filepath)
 ```ruby
 gemfile_txt = <<EOR
 source 'https://rubygems.org'
-gem 'dependency_inspector'
+gem 'rails'
 EOR
 di = DependencyInspector::RubyGemfile::Dsl.evaluate(gemfile_txt)
 
