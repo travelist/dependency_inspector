@@ -1,4 +1,4 @@
-# Dependency Inspector [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) [![Circle CI](https://circleci.com/gh/travelist/dependency-inspector.svg?style=shield&circle-token=a5c5179f69fddb1a3eeae0a33aad56de84be3701)](https://circleci.com/gh/travelist/dependency-inspector) [![Gem Version](https://badge.fury.io/rb/dependency_inspector.svg)](https://badge.fury.io/rb/dependency_inspector)
+# Dependency Inspector [![Circle CI](https://circleci.com/gh/travelist/dependency_inspector.svg?style=svg)](https://circleci.com/gh/travelist/dependency_inspector) [![Gem Version](https://badge.fury.io/rb/dependency_inspector.svg)](https://badge.fury.io/rb/dependency_inspector) [![License](http://img.shields.io/:license-mit-blue.svg)](http://doge.mit-license.org) 
 
 This gem is for analysing dependencies files such as `Gemfile` and list libraries with their information.
 
@@ -33,7 +33,7 @@ require 'dependency_inspector'
 gemfile_filepath = "#{Dir.pwd}/Gemfile"
 di = DependencyInspector::RubyGemfile::Dsl.evaluate(gemfile_filepath)
 ```
-> It can cope with the text as well
+> It can handle the text as well
 ```ruby
 gemfile_txt = <<EOR
 source 'https://rubygems.org'
